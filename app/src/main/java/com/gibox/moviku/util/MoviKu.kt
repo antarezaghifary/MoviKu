@@ -3,9 +3,11 @@ package com.gibox.moviku.util
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.gibox.moviku.data.network.networkModule
+import com.gibox.moviku.data.network.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
 
 class MoviKu : Application() {
@@ -15,10 +17,11 @@ class MoviKu : Application() {
         Timber.e(" run base application")
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         startKoin {
-            androidLogger()
+            androidLogger(Level.NONE)
             androidContext(this@MoviKu)
             modules(
                 networkModule,
+                repositoryModule
             )
         }
     }

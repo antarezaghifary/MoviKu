@@ -1,16 +1,16 @@
-package com.gibox.moviku.ui.fragment
+package com.gibox.moviku.ui.fragment.genre
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.gibox.moviku.databinding.FragmentHomeBinding
+import com.gibox.moviku.databinding.FragmentGenreBinding
 
-class HomeFragment : Fragment() {
+class GenreFragment : Fragment() {
 
     private val binding by lazy {
-        FragmentHomeBinding.inflate(layoutInflater)
+        FragmentGenreBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -19,4 +19,5 @@ class HomeFragment : Fragment() {
     ): View {
         return binding.root
     }
+
 }
