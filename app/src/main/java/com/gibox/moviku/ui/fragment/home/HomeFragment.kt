@@ -28,6 +28,24 @@ private val upcomingAdapter by lazy {
     })
 }
 
+private val popularAdapter by lazy {
+    PopularAdapter(arrayListOf(), object : PopularAdapter.OnAdapterListener {
+        @SuppressLint("LogNotTimber")
+        override fun onClick(articleModel: com.gibox.moviku.data.model.popular.ResultsItem) {
+
+        }
+    })
+}
+
+private val topAdapter by lazy {
+    TopAdapter(arrayListOf(), object : TopAdapter.OnAdapterListener {
+        @SuppressLint("LogNotTimber")
+        override fun onClick(articleModel: com.gibox.moviku.data.model.top_rated.ResultsItem) {
+
+        }
+    })
+}
+
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -51,25 +69,64 @@ class HomeFragment : Fragment() {
 
         toolbar.tvTitle.text = "Home"
 
-        viewModel.getData()
+        viewModel.getDataUpcoming()
+        viewModel.getDataPopular()
+        viewModel.getDataTop()
 
-        val llm = LinearLayoutManager(context)
-        llm.orientation = LinearLayoutManager.HORIZONTAL
-        binding.rvUpcoming.layoutManager = llm
-        binding.rvUpcoming.adapter = upcomingAdapter
-        viewModel.upcoming.observe(viewLifecycleOwner) {
-            Log.e("TAG", "data berita: ${it.results}")
-            upcomingAdapter.clear()
-            upcomingAdapter.addData(it.results)
-        }
-
+        getDataUpcoming()
+        getDataPopular()
+        getDataTop()
 
         viewModel.pesan.observe(viewLifecycleOwner) {
             it?.let {
                 Log.e("TAG", "Pesan: ${it}")
             }
         }
+    }
 
 
+    @SuppressLint("LogNotTimber")
+    private fun getDataUpcoming() {
+        binding.rvUpcoming.also {
+            val llm = LinearLayoutManager(context)
+            llm.orientation = LinearLayoutManager.HORIZONTAL
+            it.layoutManager = llm
+        }
+
+        binding.rvUpcoming.adapter = upcomingAdapter
+        viewModel.upcoming.observe(viewLifecycleOwner) {
+            Log.e("TAG", "data berita: ${it.results}")
+            upcomingAdapter.clear()
+            upcomingAdapter.addData(it.results)
+        }
+    }
+
+
+    private fun getDataPopular() {
+        binding.rvPopular.also {
+            val llm = LinearLayoutManager(context)
+            llm.orientation = LinearLayoutManager.HORIZONTAL
+            it.layoutManager = llm
+        }
+
+        binding.rvPopular.adapter = popularAdapter
+        viewModel.popular.observe(viewLifecycleOwner) {
+            popularAdapter.clear()
+            popularAdapter.addData(it.results)
+        }
+    }
+
+    private fun getDataTop() {
+        binding.rvTop.also {
+            val llm = LinearLayoutManager(context)
+            llm.orientation = LinearLayoutManager.HORIZONTAL
+            it.layoutManager = llm
+        }
+
+        binding.rvTop.adapter = topAdapter
+        viewModel.top.observe(viewLifecycleOwner) {
+            topAdapter.clear()
+            topAdapter.addData(it.results)
+        }
     }
 }

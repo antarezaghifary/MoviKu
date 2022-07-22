@@ -4,21 +4,21 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gibox.moviku.data.model.upcoming.ResultsItem
-import com.gibox.moviku.databinding.ItemUpcomingBinding
+import com.gibox.moviku.data.model.popular.ResultsItem
+import com.gibox.moviku.databinding.ItemPopularBinding
 import com.gibox.moviku.util.loadImage
 
-class UpcomingAdapter(
+class PopularAdapter(
     val artikels: ArrayList<ResultsItem>,
     val listener: OnAdapterListener
-) : RecyclerView.Adapter<UpcomingAdapter.ViewHolder>() {
-    class ViewHolder(val binding: ItemUpcomingBinding) : RecyclerView.ViewHolder(binding.root)
+) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
+    class ViewHolder(val binding: ItemPopularBinding) : RecyclerView.ViewHolder(binding.root)
     interface OnAdapterListener {
         fun onClick(artikel: ResultsItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ItemUpcomingBinding.inflate(
+        ItemPopularBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
     )
@@ -26,10 +26,11 @@ class UpcomingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val artikes = artikels[position]
         loadImage(
-            holder.binding.imgUpcoming,
-            "https://image.tmdb.org/t/p/w185" + artikes.backdropPath!!
+            holder.binding.ivImage,
+            "https://image.tmdb.org/t/p/w185" + artikes.posterPath!!
         )
-        holder.binding.tvTitle.text = artikes.title
+        holder.binding.tvTitle.text = artikes.title!!
+        holder.binding.tvSubtitle.text = artikes.releaseDate!!
         holder.itemView.setOnClickListener {
             listener.onClick(artikes)
         }

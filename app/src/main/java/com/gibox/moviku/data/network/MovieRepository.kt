@@ -1,6 +1,8 @@
 package com.gibox.moviku.data.network
 
 import com.gibox.moviku.BuildConfig
+import com.gibox.moviku.data.model.popular.PopularResponse
+import com.gibox.moviku.data.model.top_rated.TopRatedResponse
 import com.gibox.moviku.data.model.upcoming.UpcomingResponse
 import org.koin.dsl.module
 
@@ -16,6 +18,22 @@ class MovieRepository(
     suspend fun getDataUpcoming(
     ): UpcomingResponse {
         return api.getUpcoming(
+            BuildConfig.API_KEY,
+            "en-US"
+        )
+    }
+
+    suspend fun getDataPopuar(
+    ): PopularResponse {
+        return api.getPopular(
+            BuildConfig.API_KEY,
+            "en-US"
+        )
+    }
+
+    suspend fun getDataTop(
+    ): TopRatedResponse {
+        return api.getTop(
             BuildConfig.API_KEY,
             "en-US"
         )

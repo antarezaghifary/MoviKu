@@ -3,6 +3,8 @@ package com.gibox.moviku.ui.fragment.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gibox.moviku.data.model.popular.PopularResponse
+import com.gibox.moviku.data.model.top_rated.TopRatedResponse
 import com.gibox.moviku.data.model.upcoming.UpcomingResponse
 import com.gibox.moviku.data.network.MovieRepository
 import kotlinx.coroutines.launch
@@ -34,11 +36,42 @@ class HomeViewModel(
         MutableLiveData<UpcomingResponse>()
     }
 
-    fun getData() {
+    val popular by lazy {
+        MutableLiveData<PopularResponse>()
+    }
+
+    val top by lazy {
+        MutableLiveData<TopRatedResponse>()
+    }
+
+    fun getDataUpcoming() {
         viewModelScope.launch {
             try {
                 val response = repository.getDataUpcoming()
                 upcoming.value = response
+            } catch (e: Exception) {
+                pesan.value = e.message.toString()
+            }
+        }
+    }
+
+
+    fun getDataPopular() {
+        viewModelScope.launch {
+            try {
+                val response = repository.getDataPopuar()
+                popular.value = response
+            } catch (e: Exception) {
+                pesan.value = e.message.toString()
+            }
+        }
+    }
+
+    fun getDataTop() {
+        viewModelScope.launch {
+            try {
+                val response = repository.getDataTop()
+                top.value = response
             } catch (e: Exception) {
                 pesan.value = e.message.toString()
             }

@@ -2,7 +2,9 @@ package com.gibox.moviku.data.network
 
 import com.gibox.moviku.data.model.genre.GenreResponse
 import com.gibox.moviku.data.model.movie.MovieResponse
+import com.gibox.moviku.data.model.popular.PopularResponse
 import com.gibox.moviku.data.model.review.ReviewResponse
+import com.gibox.moviku.data.model.top_rated.TopRatedResponse
 import com.gibox.moviku.data.model.trailer.TrailerResponse
 import com.gibox.moviku.data.model.upcoming.UpcomingResponse
 import retrofit2.http.GET
@@ -44,4 +46,16 @@ interface MyApi {
         @Query("api_key") api_key: String,
         @Query("language") language: String
     ): UpcomingResponse
+
+    @GET("movie/popular")
+    suspend fun getPopular(
+        @Query("api_key") api_key: String,
+        @Query("language") language: String
+    ): PopularResponse
+
+    @GET("movie/top_rated")
+    suspend fun getTop(
+        @Query("api_key") api_key: String,
+        @Query("language") language: String
+    ): TopRatedResponse
 }
