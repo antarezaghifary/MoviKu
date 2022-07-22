@@ -22,5 +22,6 @@
         android:maxLines="1"
         android:textColor="@color/red_500"
         tools:ignore="HardcodedText"
+        android:text="Home"
         tools:text="Home" />
 </com.google.android.material.appbar.MaterialToolbar>
