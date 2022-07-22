@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.gibox.moviku.data.network.networkModule
 import com.gibox.moviku.data.network.repositoryModule
+import com.gibox.moviku.ui.fragment.home.homeModule
+import com.gibox.moviku.ui.fragment.home.homeViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,7 +23,9 @@ class MoviKu : Application() {
             androidContext(this@MoviKu)
             modules(
                 networkModule,
-                repositoryModule
+                repositoryModule,
+                homeViewModel,
+                homeModule
             )
         }
     }
