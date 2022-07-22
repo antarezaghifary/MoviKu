@@ -1,4 +1,4 @@
-package com.gibox.moviku
+package com.gibox.moviku.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

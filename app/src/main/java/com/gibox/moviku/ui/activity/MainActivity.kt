@@ -1,9 +1,10 @@
-package com.gibox.moviku
+package com.gibox.moviku.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.gibox.moviku.R
 import com.gibox.moviku.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

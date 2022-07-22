@@ -1,4 +1,4 @@
-package com.gibox.moviku
+package com.gibox.moviku.util
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate

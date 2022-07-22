@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.gibox.moviku.HomeFragment"
+        android:name="com.gibox.moviku.ui.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/navigation_genre"
-        android:name="com.gibox.moviku.GenreFragment"
+        android:name="com.gibox.moviku.ui.fragment.GenreFragment"
         android:label="fragment_genre"
         tools:layout="@layout/fragment_genre" />
 </navigation>
