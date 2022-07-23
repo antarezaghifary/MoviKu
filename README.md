@@ -30,8 +30,8 @@ This application is an application for viewing movies. and the features are:
 
 ## Screenshot
 
-| ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshot/movie-app-1.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshot/movie-app-2.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshot/movie-app-3.jpeg?raw=true) |
+| ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshoot/movie-app-1.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshoot/movie-app-2.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshoot/movie-app-3.jpeg?raw=true) |
 | :---: | :---: | :---: |
-| ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshot/movie-app-4.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshot/movie-app-5.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshot/movie-app-6.jpeg?raw=true) |
+| ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshoot/movie-app-4.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshoot/movie-app-5.jpeg?raw=true) | ![](https://github.com/antarezaghifary/MoviKu/blob/master/screenshoot/movie-app-6.jpeg?raw=true) |
 
 Thank you, cheers.
