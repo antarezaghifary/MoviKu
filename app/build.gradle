@@ -87,4 +87,10 @@ dependencies {
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    //Loading
+    def airbnb_version = "3.6.0"
+    implementation "com.airbnb.android:lottie:$airbnb_version"
 }

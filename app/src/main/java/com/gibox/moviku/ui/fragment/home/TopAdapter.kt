@@ -27,10 +27,10 @@ class TopAdapter(
         val artikes = artikels[position]
         loadImage(
             holder.binding.ivImage,
-            "https://image.tmdb.org/t/p/w185" + artikes.posterPath!!
+            "https://image.tmdb.org/t/p/w185" + artikes.posterPath
         )
-        holder.binding.tvTitle.text = artikes.title!!
-        holder.binding.tvSubtitle.text = artikes.releaseDate!!
+        holder.binding.tvTitle.text = artikes.title
+        holder.binding.tvSubtitle.text = artikes.releaseDate
         holder.itemView.setOnClickListener {
             listener.onClick(artikes)
         }

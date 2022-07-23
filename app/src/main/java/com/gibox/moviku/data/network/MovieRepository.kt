@@ -1,6 +1,7 @@
 package com.gibox.moviku.data.network
 
 import com.gibox.moviku.BuildConfig
+import com.gibox.moviku.data.model.movie.MovieResponse
 import com.gibox.moviku.data.model.popular.PopularResponse
 import com.gibox.moviku.data.model.top_rated.TopRatedResponse
 import com.gibox.moviku.data.model.upcoming.UpcomingResponse
@@ -35,6 +36,18 @@ class MovieRepository(
     ): TopRatedResponse {
         return api.getTop(
             BuildConfig.API_KEY,
+            "en-US"
+        )
+    }
+
+    suspend fun getMovie(
+        page: Int,
+        withGenre: Int
+    ): MovieResponse {
+        return api.getMovie(
+            page,
+            BuildConfig.API_KEY,
+            withGenre,
             "en-US"
         )
     }

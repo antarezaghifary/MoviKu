@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.gibox.moviku.data.network.networkModule
 import com.gibox.moviku.data.network.repositoryModule
+import com.gibox.moviku.ui.fragment.genre.genreModule
+import com.gibox.moviku.ui.fragment.genre.genreViewModel
 import com.gibox.moviku.ui.fragment.home.homeModule
 import com.gibox.moviku.ui.fragment.home.homeViewModel
 import org.koin.android.ext.koin.androidContext
@@ -25,7 +27,9 @@ class MoviKu : Application() {
                 networkModule,
                 repositoryModule,
                 homeViewModel,
-                homeModule
+                homeModule,
+                genreViewModel,
+                genreModule
             )
         }
     }

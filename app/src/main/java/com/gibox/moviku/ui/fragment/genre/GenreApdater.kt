@@ -1,17 +1,17 @@
-package com.gibox.moviku.ui.fragment.home
+package com.gibox.moviku.ui.fragment.genre
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gibox.moviku.data.model.popular.ResultsItem
+import com.gibox.moviku.data.model.movie.ResultsItem
 import com.gibox.moviku.databinding.ItemPopularBinding
 import com.gibox.moviku.util.loadImage
 
-class PopularAdapter(
+class GenreApdater(
     val artikels: ArrayList<ResultsItem>,
     val listener: OnAdapterListener
-) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<GenreApdater.ViewHolder>() {
     class ViewHolder(val binding: ItemPopularBinding) : RecyclerView.ViewHolder(binding.root)
     interface OnAdapterListener {
         fun onClick(artikel: ResultsItem)
@@ -25,12 +25,9 @@ class PopularAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val artikes = artikels[position]
-        loadImage(
-            holder.binding.ivImage,
-            "https://image.tmdb.org/t/p/w185" + artikes.posterPath
-        )
         holder.binding.tvTitle.text = artikes.title
         holder.binding.tvSubtitle.text = artikes.releaseDate
+        loadImage(holder.binding.ivImage, "https://image.tmdb.org/t/p/w185" + artikes.backdropPath)
         holder.itemView.setOnClickListener {
             listener.onClick(artikes)
         }
@@ -40,12 +37,10 @@ class PopularAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     fun addData(data: List<ResultsItem>) {
-        artikels.clear()
         artikels.addAll(data)
-        notifyDataSetChanged()
+        notifyItemRangeInserted((artikels.size - data.size), data.size)
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun clear() {
         artikels.clear()
         notifyDataSetChanged()

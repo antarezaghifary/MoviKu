@@ -27,7 +27,7 @@ class UpcomingAdapter(
         val artikes = artikels[position]
         loadImage(
             holder.binding.imgUpcoming,
-            "https://image.tmdb.org/t/p/w185" + artikes.backdropPath!!
+            "https://image.tmdb.org/t/p/w185" + artikes.backdropPath
         )
         holder.binding.tvTitle.text = artikes.title
         holder.itemView.setOnClickListener {

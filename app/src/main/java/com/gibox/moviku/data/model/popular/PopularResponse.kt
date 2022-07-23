@@ -55,6 +55,9 @@ data class ResultsItem(
     @field:SerializedName("adult")
     val adult: Boolean? = null,
 
+    @field:SerializedName("vote_average")
+    val voteAverage: Double? = null,
+
     @field:SerializedName("vote_count")
     val voteCount: Int? = null
 )
