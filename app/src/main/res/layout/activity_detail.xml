@@ -202,7 +202,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tvTrailer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16"
@@ -213,6 +213,38 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvOverview" />
 
+            <LinearLayout
+                android:id="@+id/llEmptyTrailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTrailer">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ltReviewEmptyTrailer"
+                    android:layout_width="@dimen/size_150"
+                    android:layout_height="@dimen/size_150"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/empty" />
+
+                <TextView
+                    android:id="@+id/tvEmptyTrailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_50"
+                    android:layout_marginEnd="@dimen/margin_50"
+                    android:layout_marginBottom="@dimen/margin_50"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvVideo"
                 android:layout_width="match_parent"
@@ -221,7 +253,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/tvTrailer" />
 
             <TextView
                 android:id="@+id/tvShowAll"

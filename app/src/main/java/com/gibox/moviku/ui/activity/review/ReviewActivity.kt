@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.dsl.module
 
 val reviewModule = module {
-    factory { ReviewFragment() }
+    factory { ReviewActivity() }
 }
 
 class ReviewActivity : AppCompatActivity() {

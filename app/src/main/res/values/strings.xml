@@ -5,7 +5,11 @@
     <string name="coming_soon">Coming Soon</string>
     <string name="popular_movie">Popular Movie</string>
     <string name="all_film">All Film</string>
+    <string name="placeholder_empty_cs">We don\'t have any movie for %1$s</string>
+    <string name="placeholder_empty_pm">We don\'t have any movie for %1$s</string>
+    <string name="placeholder_empty_tm">We don\'t have any movie for %1$s</string>
     <string name="placeholder_empty_review">We don\'t have any reviews for %1$s</string>
+    <string name="placeholder_empty_trailer">We don\'t have any video trailer for %1$s</string>
     <string name="title_unknown">Unknown</string>
     <string name="placeholder_user_review">User Review ( %1$s )</string>
 </resources>

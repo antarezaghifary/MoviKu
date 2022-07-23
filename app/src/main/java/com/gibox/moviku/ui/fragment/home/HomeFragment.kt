@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gibox.moviku.R
 import com.gibox.moviku.data.model.upcoming.ResultsItem
 import com.gibox.moviku.databinding.CustomToolbarBinding
 import com.gibox.moviku.databinding.FragmentHomeBinding
@@ -129,6 +130,24 @@ class HomeFragment : Fragment() {
                 Log.e("TAG", "Pesan: ${it}")
             }
         }
+
+        binding.tvEmpty.text =
+            String.format(
+                getString(R.string.placeholder_empty_cs),
+                "Coming Soon"
+            )
+
+        binding.tvEmptyPopular.text =
+            String.format(
+                getString(R.string.placeholder_empty_pm),
+                "Popular"
+            )
+
+        binding.tvEmptyTop.text =
+            String.format(
+                getString(R.string.placeholder_empty_tm),
+                "Top"
+            )
     }
 
 
@@ -144,6 +163,8 @@ class HomeFragment : Fragment() {
         viewModel.upcoming.observe(viewLifecycleOwner) {
             Log.e("TAG", "data upcoming: ${it.results}")
             binding.progressTop.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
+            binding.tvEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
+            binding.ltReviewEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             upcomingAdapter.clear()
             upcomingAdapter.addData(it.results)
         }
@@ -159,6 +180,10 @@ class HomeFragment : Fragment() {
 
         binding.rvPopular.adapter = popularAdapter
         viewModel.popular.observe(viewLifecycleOwner) {
+            binding.tvEmptyPopular.visibility =
+                if (it.results.isEmpty()) View.VISIBLE else View.GONE
+            binding.ltReviewEmptyPopular.visibility =
+                if (it.results.isEmpty()) View.VISIBLE else View.GONE
             popularAdapter.clear()
             popularAdapter.addData(it.results)
         }
@@ -173,6 +198,9 @@ class HomeFragment : Fragment() {
 
         binding.rvTop.adapter = topAdapter
         viewModel.top.observe(viewLifecycleOwner) {
+            binding.tvEmptyTop.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
+            binding.ltReviewEmptyTop.visibility =
+                if (it.results.isEmpty()) View.VISIBLE else View.GONE
             topAdapter.clear()
             topAdapter.addData(it.results)
         }

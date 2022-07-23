@@ -37,6 +37,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progress_top" />
 
+        <LinearLayout
+            android:id="@+id/llEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvComingSoon">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/ltReviewEmpty"
+                android:layout_width="@dimen/size_150"
+                android:layout_height="@dimen/size_150"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/empty" />
+
+            <TextView
+                android:id="@+id/tvEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_50"
+                android:layout_marginEnd="@dimen/margin_50"
+                android:layout_marginBottom="@dimen/margin_50"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_16"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUpcoming"
             android:layout_width="match_parent"
@@ -61,6 +93,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rvUpcoming" />
 
+        <LinearLayout
+            android:id="@+id/llEmptyPopular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPopular">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/ltReviewEmptyPopular"
+                android:layout_width="@dimen/size_150"
+                android:layout_height="@dimen/size_150"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/empty" />
+
+            <TextView
+                android:id="@+id/tvEmptyPopular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_50"
+                android:layout_marginEnd="@dimen/margin_50"
+                android:layout_marginBottom="@dimen/margin_50"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_16"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPopular"
             android:layout_width="match_parent"
@@ -84,6 +148,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rvPopular" />
+
+        <LinearLayout
+            android:id="@+id/llEmptyTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTop">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/ltReviewEmptyTop"
+                android:layout_width="@dimen/size_150"
+                android:layout_height="@dimen/size_150"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/empty" />
+
+            <TextView
+                android:id="@+id/tvEmptyTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_50"
+                android:layout_marginEnd="@dimen/margin_50"
+                android:layout_marginBottom="@dimen/margin_50"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_16"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTop"

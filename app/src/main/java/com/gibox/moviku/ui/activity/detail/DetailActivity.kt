@@ -137,6 +137,11 @@ class DetailActivity : AppCompatActivity() {
                     getString(R.string.placeholder_empty_review),
                     title
                 )
+            tvEmptyTrailer.text =
+                String.format(
+                    getString(R.string.placeholder_empty_trailer),
+                    title
+                )
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
                 when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
                     Configuration.UI_MODE_NIGHT_YES -> {
@@ -252,7 +257,7 @@ class DetailActivity : AppCompatActivity() {
         binding.rvReview.adapter = reviewAdapter
         viewModel.review.observe(this) {
             Log.e("TAG", "data movie: ${it.results}")
-            binding.tvShowAll.visibility = if (it.results.isNotEmpty()) View.VISIBLE else View.GONE
+            binding.tvShowAll.visibility = if (it.results.isEmpty()) View.GONE else View.VISIBLE
             binding.tvEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             binding.ltReviewEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             reviewAdapter.addData(it.results)
@@ -268,6 +273,11 @@ class DetailActivity : AppCompatActivity() {
 
         binding.rvVideo.adapter = trailerAdapter
         viewModel.trailer.observe(this) {
+            binding.tvEmptyTrailer.visibility =
+                if (it.results.isEmpty()) View.VISIBLE else View.GONE
+            binding.ltReviewEmptyTrailer.visibility =
+                if (it.results.isEmpty()) View.VISIBLE else View.GONE
+            binding.tvTrailer.visibility = if (it.results.isEmpty()) View.GONE else View.VISIBLE
             trailerAdapter.addData(it.results)
         }
     }
