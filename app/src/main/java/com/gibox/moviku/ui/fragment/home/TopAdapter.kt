@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gibox.moviku.data.model.top_rated.ResultsItem
 import com.gibox.moviku.databinding.ItemPopularBinding
+import com.gibox.moviku.util.dateFormat
 import com.gibox.moviku.util.loadImage
 
 class TopAdapter(
@@ -30,7 +31,11 @@ class TopAdapter(
             "https://image.tmdb.org/t/p/w185" + artikes.posterPath
         )
         holder.binding.tvTitle.text = artikes.title
-        holder.binding.tvSubtitle.text = artikes.releaseDate
+        holder.binding.tvSubtitle.dateFormat(
+            artikes.releaseDate!!,
+            "yyyy-MM-dd",
+            "dd MMMM yyyy"
+        )
         holder.itemView.setOnClickListener {
             listener.onClick(artikes)
         }

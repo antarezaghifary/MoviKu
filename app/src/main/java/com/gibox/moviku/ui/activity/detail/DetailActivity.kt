@@ -1,6 +1,7 @@
 package com.gibox.moviku.ui.activity.detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gibox.moviku.R
 import com.gibox.moviku.data.model.trailer.ResultsItem
 import com.gibox.moviku.databinding.ActivityDetailBinding
+import com.gibox.moviku.ui.activity.trailer.TrailerActivity
 import com.gibox.moviku.util.dateFormat
 import com.gibox.moviku.util.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,7 +40,10 @@ class DetailActivity : AppCompatActivity() {
         TrailerAdapter(arrayListOf(), object : TrailerAdapter.OnAdapterListener {
             @SuppressLint("LogNotTimber")
             override fun onClick(articleModel: ResultsItem) {
-
+                val intent = Intent(this@DetailActivity, TrailerActivity::class.java)
+                intent.putExtra("id", articleModel.key)
+                intent.putExtra("name", articleModel.name)
+                startActivity(intent)
             }
         })
     }
