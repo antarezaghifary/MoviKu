@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/fragment_review.xml" value="0.16" />
         <entry key="app/src/main/res/layout/item_bottomsheet.xml" value="0.16" />
         <entry key="app/src/main/res/layout/item_genre.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/item_modal.xml" value="0.18" />
         <entry key="app/src/main/res/layout/item_popular.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_review.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_trailer.xml" value="0.23333333333333334" />

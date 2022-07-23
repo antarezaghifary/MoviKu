@@ -12,4 +12,5 @@
     <string name="placeholder_empty_trailer">We don\'t have any video trailer for %1$s</string>
     <string name="title_unknown">Unknown</string>
     <string name="placeholder_user_review">User Review ( %1$s )</string>
+    <string name="selected_genre_action">Selected Genre: </string>
 </resources>

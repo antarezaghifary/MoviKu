@@ -1,6 +1,7 @@
 package com.gibox.moviku.data.network
 
 import com.gibox.moviku.BuildConfig
+import com.gibox.moviku.data.model.genre.GenreResponse
 import com.gibox.moviku.data.model.movie.MovieResponse
 import com.gibox.moviku.data.model.popular.PopularResponse
 import com.gibox.moviku.data.model.review.ReviewResponse
@@ -82,6 +83,14 @@ class MovieRepository(
         return api.getTrailer(
             movieID,
             BuildConfig.API_KEY
+        )
+    }
+
+    suspend fun getGenre(
+    ): GenreResponse {
+        return api.getGenre(
+            BuildConfig.API_KEY,
+            "en-US"
         )
     }
 }

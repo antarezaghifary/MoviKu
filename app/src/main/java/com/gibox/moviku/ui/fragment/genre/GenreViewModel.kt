@@ -3,6 +3,7 @@ package com.gibox.moviku.ui.fragment.genre
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gibox.moviku.data.model.genre.GenreResponse
 import com.gibox.moviku.data.model.movie.MovieResponse
 import com.gibox.moviku.data.network.MovieRepository
 import kotlinx.coroutines.launch
@@ -38,11 +39,14 @@ class GenreViewModel(
         MutableLiveData<MovieResponse>()
     }
 
+    val genre by lazy {
+        MutableLiveData<GenreResponse>()
+    }
+
     var page = 1
     var total = 1
 
     fun getDataMovie(withGenre: Int) {
-
         if (page > 1) {
             loadMore.value = true
         } else {
@@ -58,6 +62,17 @@ class GenreViewModel(
                 page++
                 loading.value = false
                 loadMore.value = false
+            } catch (e: Exception) {
+                pesan.value = e.message.toString()
+            }
+        }
+    }
+
+    fun getGenre() {
+        viewModelScope.launch {
+            try {
+                val response = repository.getGenre()
+                genre.value = response
             } catch (e: Exception) {
                 pesan.value = e.message.toString()
             }

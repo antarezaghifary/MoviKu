@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_bottomsheet"
     android:orientation="vertical"
     android:padding="20dp">
@@ -30,7 +31,7 @@
     </LinearLayout>
 
 
-    <com.shawnlin.numberpicker.NumberPicker
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/genrePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,6 +46,7 @@
         app:np_textColor="#888E9E"
         app:np_textSize="14sp"
         app:np_value="1"
+        tools:listitem="@layout/item_modal"
         app:np_width="64dp" />
 
 </LinearLayout>
