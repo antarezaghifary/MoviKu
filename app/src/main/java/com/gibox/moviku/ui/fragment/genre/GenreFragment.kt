@@ -54,7 +54,7 @@ class GenreFragment : Fragment() {
                 )
                 intent.putExtra("overview", articleModel.overview)
                 intent.putExtra("rilis", articleModel.releaseDate)
-                intent.putExtra("vote", articleModel.voteAverage.toString())
+                intent.putExtra("vote", articleModel.voteAverage)
                 startActivity(intent)
             }
         })

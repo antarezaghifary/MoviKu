@@ -4,10 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gibox.moviku.data.model.review.ReviewResponse
+import com.gibox.moviku.data.model.trailer.TrailerResponse
 import com.gibox.moviku.data.network.MovieRepository
 import kotlinx.coroutines.launch
 import org.koin.dsl.module
-import kotlin.math.ceil
 
 val detailViewModel = module {
     factory {
@@ -35,30 +35,38 @@ class DetailViewModel(
         MutableLiveData<ReviewResponse>()
     }
 
-
-    var page = 1
-    var total = 1
+    val trailer by lazy {
+        MutableLiveData<TrailerResponse>()
+    }
 
     fun getDataReview(movieID: Int) {
 
-        if (page > 1) {
-            loadMore.value = true
-        } else {
-            loading.value = true
-        }
+        loading.value = true
 
         viewModelScope.launch {
             try {
-                val response = repository.getReview(page, movieID)
+                val response = repository.getReview(movieID)
                 review.value = response
-                val totalResult: Double = response.totalResults!! / 20.0
-                total = ceil(totalResult).toInt()
-                page++
                 loading.value = false
-                loadMore.value = false
             } catch (e: Exception) {
                 pesan.value = e.message.toString()
             }
         }
     }
+
+    fun getDataVideoTrailer(movieID: Int) {
+
+        loading.value = true
+
+        viewModelScope.launch {
+            try {
+                val response = repository.getVideoTrailer(movieID)
+                trailer.value = response
+                loading.value = false
+            } catch (e: Exception) {
+                pesan.value = e.message.toString()
+            }
+        }
+    }
+
 }

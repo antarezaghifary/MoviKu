@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_arrow_circle.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_black_filter.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_gradient_light.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_cinema_alt_svgrepo_com.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_filter_svgrepo_com.xml" value="0.1" />
@@ -16,6 +17,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="app/src/main/res/layout/item_popular.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_review.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/item_trailer.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/item_upcoming.xml" value="0.12" />
         <entry key="app/src/main/res/menu/menu_home.xml" value="0.25" />
       </map>

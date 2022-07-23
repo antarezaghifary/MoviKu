@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gibox.moviku.R
+import com.gibox.moviku.data.model.trailer.ResultsItem
 import com.gibox.moviku.databinding.ActivityDetailBinding
 import com.gibox.moviku.util.dateFormat
 import com.gibox.moviku.util.loadImage
@@ -31,6 +32,15 @@ class DetailActivity : AppCompatActivity() {
 
     private val reviewAdapter by lazy {
         ReviewAdapter(arrayListOf())
+    }
+
+    private val trailerAdapter by lazy {
+        TrailerAdapter(arrayListOf(), object : TrailerAdapter.OnAdapterListener {
+            @SuppressLint("LogNotTimber")
+            override fun onClick(articleModel: ResultsItem) {
+
+            }
+        })
     }
 
     private
@@ -55,7 +65,7 @@ class DetailActivity : AppCompatActivity() {
     var rilis: String? = null
 
     private
-    var vote: String? = null
+    var vote: Double? = null
 
     @SuppressLint("LogNotTimber")
     override fun onCreate(
@@ -89,6 +99,9 @@ class DetailActivity : AppCompatActivity() {
             intent.getStringExtra(
                 "rilis"
             )
+        vote = intent.getDoubleExtra("vote", 0.0)
+
+        Log.e("TAG", "VOTE: $vote")
 
         with(binding) {
             setupToolbar()
@@ -102,7 +115,9 @@ class DetailActivity : AppCompatActivity() {
         }
 
         viewModel.getDataReview(id!!)
+        viewModel.getDataVideoTrailer(id!!)
         getDataReview()
+        getDataVideoTrailer()
     }
 
     private fun setupToolbar() {
@@ -208,6 +223,10 @@ class DetailActivity : AppCompatActivity() {
                 } else {
                     getString(R.string.title_unknown)
                 }
+
+            val newVote = vote?.toFloat()
+            rbRatting.rating = (newVote!! / 2)
+            tvRatting.text = (newVote / 2).toString()
         }
     }
 
@@ -225,6 +244,19 @@ class DetailActivity : AppCompatActivity() {
             binding.tvEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             binding.ltReviewEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             reviewAdapter.addData(it.results)
+        }
+    }
+
+    private fun getDataVideoTrailer() {
+        binding.rvVideo.also {
+            val llm = LinearLayoutManager(this)
+            llm.orientation = LinearLayoutManager.HORIZONTAL
+            it.layoutManager = llm
+        }
+
+        binding.rvVideo.adapter = trailerAdapter
+        viewModel.trailer.observe(this) {
+            trailerAdapter.addData(it.results)
         }
     }
 }

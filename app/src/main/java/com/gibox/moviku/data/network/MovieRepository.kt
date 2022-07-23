@@ -5,6 +5,7 @@ import com.gibox.moviku.data.model.movie.MovieResponse
 import com.gibox.moviku.data.model.popular.PopularResponse
 import com.gibox.moviku.data.model.review.ReviewResponse
 import com.gibox.moviku.data.model.top_rated.TopRatedResponse
+import com.gibox.moviku.data.model.trailer.TrailerResponse
 import com.gibox.moviku.data.model.upcoming.UpcomingResponse
 import org.koin.dsl.module
 
@@ -54,14 +55,21 @@ class MovieRepository(
     }
 
     suspend fun getReview(
-        page: Int,
         movieID: Int
     ): ReviewResponse {
         return api.getReview(
             movieID,
-            page,
             BuildConfig.API_KEY,
             "en-US"
+        )
+    }
+
+    suspend fun getVideoTrailer(
+        movieID: Int
+    ): TrailerResponse {
+        return api.getTrailer(
+            movieID,
+            BuildConfig.API_KEY
         )
     }
 }

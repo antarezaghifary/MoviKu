@@ -30,7 +30,6 @@ interface MyApi {
     @GET("movie/{movie_id}/reviews")
     suspend fun getReview(
         @Path("movie_id") movie_id: Int,
-        @Query("page") page: Int,
         @Query("api_key") api_key: String,
         @Header("language") language: String
     ): ReviewResponse
