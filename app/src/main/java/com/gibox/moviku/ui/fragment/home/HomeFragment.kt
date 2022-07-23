@@ -128,6 +128,7 @@ class HomeFragment : Fragment() {
         viewModel.pesan.observe(viewLifecycleOwner) {
             it?.let {
                 Log.e("TAG", "Pesan: ${it}")
+
             }
         }
 

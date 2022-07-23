@@ -18,7 +18,6 @@ import com.gibox.moviku.databinding.CustomToolbarGenreBinding
 import com.gibox.moviku.databinding.FragmentGenreBinding
 import com.gibox.moviku.databinding.ItemBottomsheetBinding
 import com.gibox.moviku.ui.activity.detail.DetailActivity
-import com.gibox.moviku.ui.fragment.filter.NameGenreAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.dsl.module
@@ -124,7 +123,6 @@ class GenreFragment : Fragment() {
         bindingToolbar.filterGenre.setOnClickListener {
             Log.e("TAG", "Klik filter: ")
 
-
             custom1.close.setOnClickListener {
                 dialog.dismiss()
             }
@@ -142,6 +140,7 @@ class GenreFragment : Fragment() {
 
         custom1.genrePicker.adapter = genreNameAdapter
         viewModel.genre.observe(viewLifecycleOwner) {
+            custom1.tvGenre.visibility = if (it.genres.isEmpty()) View.VISIBLE else View.GONE
             genreNameAdapter.addData(it.genres)
         }
     }

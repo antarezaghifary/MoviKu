@@ -1,4 +1,4 @@
-package com.gibox.moviku.ui.fragment.filter
+package com.gibox.moviku.ui.fragment.genre
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

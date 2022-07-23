@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gibox.moviku.databinding.ActivityReviewBinding
+import com.gibox.moviku.databinding.ItemToolbarReviewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.dsl.module
 
@@ -26,6 +27,9 @@ class ReviewActivity : AppCompatActivity() {
 
     private var id: Int? = null
 
+    private lateinit var customToolbar: ItemToolbarReviewBinding
+
+    @SuppressLint("LogNotTimber")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -38,7 +42,19 @@ class ReviewActivity : AppCompatActivity() {
             }
         }
 
+        customToolbar = binding.toolbar
+        setSupportActionBar(customToolbar.containerBar)
+        supportActionBar?.apply {
+            title = "User Review ${intent.getStringExtra("title")}"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         firstLoad()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 
     private fun firstLoad() {

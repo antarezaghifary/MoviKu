@@ -206,7 +206,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_24"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"
                 android:text="Trailer"
@@ -222,7 +222,7 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTrailer">
+                app:layout_constraintTop_toBottomOf="@+id/tvOverview">
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/ltReviewEmptyTrailer"
@@ -248,7 +248,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvVideo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/margin_140"
                 android:layout_marginTop="@dimen/margin_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -259,7 +259,7 @@
                 android:id="@+id/tvShowAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_24"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -272,7 +272,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_24"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"

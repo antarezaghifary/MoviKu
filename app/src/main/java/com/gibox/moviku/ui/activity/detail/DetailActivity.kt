@@ -205,6 +205,7 @@ class DetailActivity : AppCompatActivity() {
             tvShowAll.setOnClickListener {
                 val intent = Intent(this@DetailActivity, ReviewActivity::class.java)
                 intent.putExtra("id", id)
+                intent.putExtra("title", title)
                 startActivity(intent)
             }
         }
@@ -247,7 +248,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("LogNotTimber")
+    @SuppressLint("LogNotTimber", "SetTextI18n")
     private fun getDataReview() {
         binding.rvReview.also {
             val llm = LinearLayoutManager(this)
@@ -261,6 +262,7 @@ class DetailActivity : AppCompatActivity() {
             binding.tvEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             binding.ltReviewEmpty.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             reviewAdapter.addData(it.results)
+            binding.tvUserReview.text = "User Reviews (${it.results.size})"
         }
     }
 

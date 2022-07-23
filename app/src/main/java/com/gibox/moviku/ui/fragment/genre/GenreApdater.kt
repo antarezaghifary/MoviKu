@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gibox.moviku.data.model.movie.ResultsItem
 import com.gibox.moviku.databinding.ItemGenreBinding
+import com.gibox.moviku.util.dateFormat
 import com.gibox.moviku.util.loadImage
 
 class GenreApdater(
@@ -26,7 +27,11 @@ class GenreApdater(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val artikes = artikels[position]
         holder.binding.tvTitle.text = artikes.title
-        holder.binding.tvSubtitle.text = artikes.releaseDate
+        holder.binding.tvSubtitle.dateFormat(
+            artikes.releaseDate!!,
+            "yyyy-MM-dd",
+            "dd MMMM yyyy"
+        )
         loadImage(holder.binding.ivImage, "https://image.tmdb.org/t/p/w185" + artikes.backdropPath)
         holder.itemView.setOnClickListener {
             listener.onClick(artikes)

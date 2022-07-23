@@ -13,4 +13,5 @@
     <string name="title_unknown">Unknown</string>
     <string name="placeholder_user_review">User Review ( %1$s )</string>
     <string name="selected_genre_action">Selected Genre: </string>
+    <string name="choose_genre">Choose Genre</string>
 </resources>
