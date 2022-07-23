@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.gibox.moviku.data.network.networkModule
 import com.gibox.moviku.data.network.repositoryModule
+import com.gibox.moviku.ui.activity.detail.detailModule
+import com.gibox.moviku.ui.activity.detail.detailViewModel
 import com.gibox.moviku.ui.fragment.genre.genreModule
 import com.gibox.moviku.ui.fragment.genre.genreViewModel
 import com.gibox.moviku.ui.fragment.home.homeModule
@@ -29,7 +31,9 @@ class MoviKu : Application() {
                 homeViewModel,
                 homeModule,
                 genreViewModel,
-                genreModule
+                genreModule,
+                detailViewModel,
+                detailModule
             )
         }
     }

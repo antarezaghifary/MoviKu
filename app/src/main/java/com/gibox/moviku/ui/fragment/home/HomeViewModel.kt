@@ -45,10 +45,12 @@ class HomeViewModel(
     }
 
     fun getDataUpcoming() {
+        loading.value = true
         viewModelScope.launch {
             try {
                 val response = repository.getDataUpcoming()
                 upcoming.value = response
+                loading.value = false
             } catch (e: Exception) {
                 pesan.value = e.message.toString()
             }

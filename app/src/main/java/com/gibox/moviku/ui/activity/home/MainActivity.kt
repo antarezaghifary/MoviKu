@@ -1,4 +1,4 @@
-package com.gibox.moviku.ui.activity
+package com.gibox.moviku.ui.activity.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

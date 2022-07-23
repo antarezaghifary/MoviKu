@@ -45,16 +45,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/ltLoading"
-        android:layout_width="@dimen/size_150"
-        android:layout_height="@dimen/size_150"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:lottie_loop="true" />
+    <!--    <com.airbnb.lottie.LottieAnimationView-->
+    <!--        android:id="@+id/ltLoading"-->
+    <!--        android:layout_width="@dimen/size_150"-->
+    <!--        android:layout_height="@dimen/size_150"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+    <!--        app:lottie_loop="true" />-->
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nsContent"
@@ -177,14 +177,6 @@
                 app:layout_constraintStart_toEndOf="@+id/rbRatting"
                 app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvGenre"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_16"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -192,10 +184,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_marginTop="@dimen/margin_16"
+                android:text="Overview"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvGenre" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
             <TextView
                 android:id="@+id/tvOverview"
@@ -257,6 +250,7 @@
                 android:layout_marginEnd="@dimen/margin_16"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:text="Show All"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rvVideo" />
 
@@ -269,6 +263,7 @@
                 android:layout_marginEnd="@dimen/margin_16"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"
+                android:text="User Reviews"
                 app:layout_constraintEnd_toStartOf="@+id/tvShowAll"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rvVideo" />
@@ -305,6 +300,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvReview"
                 android:layout_width="match_parent"
@@ -313,7 +309,8 @@
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvUserReview" />
+                app:layout_constraintTop_toBottomOf="@+id/tvUserReview"
+                tools:itemCount="10" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

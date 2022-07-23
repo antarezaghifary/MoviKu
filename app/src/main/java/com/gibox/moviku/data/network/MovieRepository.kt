@@ -3,6 +3,7 @@ package com.gibox.moviku.data.network
 import com.gibox.moviku.BuildConfig
 import com.gibox.moviku.data.model.movie.MovieResponse
 import com.gibox.moviku.data.model.popular.PopularResponse
+import com.gibox.moviku.data.model.review.ReviewResponse
 import com.gibox.moviku.data.model.top_rated.TopRatedResponse
 import com.gibox.moviku.data.model.upcoming.UpcomingResponse
 import org.koin.dsl.module
@@ -48,6 +49,18 @@ class MovieRepository(
             page,
             BuildConfig.API_KEY,
             withGenre,
+            "en-US"
+        )
+    }
+
+    suspend fun getReview(
+        page: Int,
+        movieID: Int
+    ): ReviewResponse {
+        return api.getReview(
+            movieID,
+            page,
+            BuildConfig.API_KEY,
             "en-US"
         )
     }

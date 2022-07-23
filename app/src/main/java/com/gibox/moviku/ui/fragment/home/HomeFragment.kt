@@ -143,6 +143,7 @@ class HomeFragment : Fragment() {
         binding.rvUpcoming.adapter = upcomingAdapter
         viewModel.upcoming.observe(viewLifecycleOwner) {
             Log.e("TAG", "data upcoming: ${it.results}")
+            binding.progressTop.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             upcomingAdapter.clear()
             upcomingAdapter.addData(it.results)
         }
