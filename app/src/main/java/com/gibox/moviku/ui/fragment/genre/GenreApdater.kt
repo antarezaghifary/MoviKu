@@ -5,20 +5,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gibox.moviku.data.model.movie.ResultsItem
-import com.gibox.moviku.databinding.ItemPopularBinding
+import com.gibox.moviku.databinding.ItemGenreBinding
 import com.gibox.moviku.util.loadImage
 
 class GenreApdater(
     val artikels: ArrayList<ResultsItem>,
     val listener: OnAdapterListener
 ) : RecyclerView.Adapter<GenreApdater.ViewHolder>() {
-    class ViewHolder(val binding: ItemPopularBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ItemGenreBinding) : RecyclerView.ViewHolder(binding.root)
     interface OnAdapterListener {
         fun onClick(artikel: ResultsItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ItemPopularBinding.inflate(
+        ItemGenreBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
     )

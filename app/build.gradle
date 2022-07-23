@@ -90,7 +90,9 @@ dependencies {
 
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
-    //Loading
     def airbnb_version = "3.6.0"
     implementation "com.airbnb.android:lottie:$airbnb_version"
+
+    def picker_version = "2.4.9"
+    implementation "com.shawnlin:number-picker:$picker_version"
 }

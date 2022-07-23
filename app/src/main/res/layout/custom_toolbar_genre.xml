@@ -25,6 +25,7 @@
         tools:ignore="HardcodedText" />
 
     <ImageView
+        android:id="@+id/filterGenre"
         android:layout_width="@dimen/size_20"
         android:layout_height="@dimen/size_20"
         android:layout_gravity="end"

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gibox.moviku.R
 import com.gibox.moviku.data.model.trailer.ResultsItem
 import com.gibox.moviku.databinding.ActivityDetailBinding
+import com.gibox.moviku.ui.activity.review.ReviewActivity
 import com.gibox.moviku.ui.activity.trailer.TrailerActivity
 import com.gibox.moviku.util.dateFormat
 import com.gibox.moviku.util.loadImage
@@ -194,6 +195,12 @@ class DetailActivity : AppCompatActivity() {
                         }
                     }
                 }
+            }
+
+            tvShowAll.setOnClickListener {
+                val intent = Intent(this@DetailActivity, ReviewActivity::class.java)
+                intent.putExtra("id", id)
+                startActivity(intent)
             }
         }
         setupUI()

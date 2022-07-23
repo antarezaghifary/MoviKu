@@ -64,6 +64,18 @@ class MovieRepository(
         )
     }
 
+    suspend fun getReviewAll(
+        movieID: Int,
+        page: Int
+    ): ReviewResponse {
+        return api.getReviewAll(
+            movieID,
+            page,
+            BuildConfig.API_KEY,
+            "en-US"
+        )
+    }
+
     suspend fun getVideoTrailer(
         movieID: Int
     ): TrailerResponse {

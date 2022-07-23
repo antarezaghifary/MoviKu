@@ -6,6 +6,8 @@ import com.gibox.moviku.data.network.networkModule
 import com.gibox.moviku.data.network.repositoryModule
 import com.gibox.moviku.ui.activity.detail.detailModule
 import com.gibox.moviku.ui.activity.detail.detailViewModel
+import com.gibox.moviku.ui.activity.review.reviewModule
+import com.gibox.moviku.ui.activity.review.reviewViewModel
 import com.gibox.moviku.ui.fragment.genre.genreModule
 import com.gibox.moviku.ui.fragment.genre.genreViewModel
 import com.gibox.moviku.ui.fragment.home.homeModule
@@ -33,7 +35,9 @@ class MoviKu : Application() {
                 genreViewModel,
                 genreModule,
                 detailViewModel,
-                detailModule
+                detailModule,
+                reviewViewModel,
+                reviewModule
             )
         }
     }

@@ -10,10 +10,13 @@ import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.gibox.moviku.R
 import com.gibox.moviku.data.model.movie.ResultsItem
 import com.gibox.moviku.databinding.CustomToolbarGenreBinding
 import com.gibox.moviku.databinding.FragmentGenreBinding
+import com.gibox.moviku.databinding.ItemBottomsheetBinding
 import com.gibox.moviku.ui.activity.detail.DetailActivity
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.dsl.module
 
@@ -26,6 +29,8 @@ class GenreFragment : Fragment() {
     private lateinit var binding: FragmentGenreBinding
 
     private lateinit var bindingToolbar: CustomToolbarGenreBinding
+
+    private lateinit var bottomSheet: ItemBottomsheetBinding
 
     private val viewModel: GenreViewModel by viewModel()
 
@@ -80,6 +85,26 @@ class GenreFragment : Fragment() {
             it?.let {
                 Log.e("TAG", "Pesan: $it")
             }
+        }
+
+        bindingToolbar.filterGenre.setOnClickListener {
+            Log.e("TAG", "Klik filter: ")
+            val dialog = BottomSheetDialog(requireContext(), R.style.BaseBottomSheetDialog)
+            bottomSheet.close.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            val data =
+                arrayOf(
+                    "Maluku Utara",
+                    "Maluku",
+                    "Sulawesi Barat"
+                )
+            bottomSheet.genrePicker.minValue = 1
+            bottomSheet.genrePicker.maxValue = data.size
+            bottomSheet.genrePicker.displayedValues = data
+            bottomSheet.genrePicker.value = data.size
+
         }
     }
 
