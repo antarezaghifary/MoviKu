@@ -44,6 +44,10 @@ class HomeViewModel(
         MutableLiveData<TopRatedResponse>()
     }
 
+    val error by lazy {
+        MutableLiveData<Boolean>()
+    }
+
     fun getDataUpcoming() {
         loading.value = true
         viewModelScope.launch {
@@ -51,8 +55,9 @@ class HomeViewModel(
                 val response = repository.getDataUpcoming()
                 upcoming.value = response
                 loading.value = false
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 pesan.value = e.message.toString()
+                error.value = true
             }
         }
     }

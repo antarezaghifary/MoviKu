@@ -279,7 +279,7 @@ class DetailActivity : AppCompatActivity() {
                 if (it.results.isEmpty()) View.VISIBLE else View.GONE
             binding.ltReviewEmptyTrailer.visibility =
                 if (it.results.isEmpty()) View.VISIBLE else View.GONE
-            binding.tvTrailer.visibility = if (it.results.isEmpty()) View.GONE else View.VISIBLE
+            //binding.tvTrailer.visibility = if (it.results.isEmpty()) View.GONE else View.VISIBLE
             trailerAdapter.addData(it.results)
         }
     }

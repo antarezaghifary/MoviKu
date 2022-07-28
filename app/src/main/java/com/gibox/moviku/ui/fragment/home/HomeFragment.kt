@@ -169,6 +169,14 @@ class HomeFragment : Fragment() {
             upcomingAdapter.clear()
             upcomingAdapter.addData(it.results)
         }
+
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            error?.let {
+                if (error) {
+                    Log.e("TAG", "getDataUpcoming Eror: $error")
+                }
+            }
+        }
     }
 
 

@@ -24,14 +24,20 @@ class GenreApdater(
         )
     )
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val artikes = artikels[position]
         holder.binding.tvTitle.text = artikes.title
-        holder.binding.tvSubtitle.dateFormat(
-            artikes.releaseDate!!,
-            "yyyy-MM-dd",
-            "dd MMMM yyyy"
-        )
+        if (artikes.releaseDate?.isEmpty() == true) {
+            holder.binding.tvSubtitle.text = "No Date"
+        } else {
+            holder.binding.tvSubtitle.dateFormat(
+                artikes.releaseDate!!,
+                "yyyy-MM-dd",
+                "dd MMMM yyyy"
+            )
+        }
+
         loadImage(holder.binding.ivImage, "https://image.tmdb.org/t/p/w185" + artikes.backdropPath)
         holder.itemView.setOnClickListener {
             listener.onClick(artikes)
