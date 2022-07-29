@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_arrow_circle.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_black_filter.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_bottomsheet.xml" value="0.1" />
@@ -12,7 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_filter_svgrepo_com.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.12" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_review.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_trailer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/bg_bottomsheet.xml" value="0.23333333333333334" />

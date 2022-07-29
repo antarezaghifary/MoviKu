@@ -160,6 +160,15 @@ class GenreFragment : Fragment() {
             binding.progressTop.visibility = if (it.results.isEmpty()) View.VISIBLE else View.GONE
             genreAdapter.addData(it.results)
         }
+
+        viewModel.loadMore.observe(viewLifecycleOwner) {
+            if (it.equals(true)) {
+                binding.progressBottom.visibility = View.VISIBLE
+            } else {
+                binding.progressBottom.visibility = View.GONE
+            }
+        }
+
         binding.scroll.setOnScrollChangeListener { v: NestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY == v.getChildAt(0)!!.measuredHeight - v.measuredHeight) {
                 if (viewModel.page <= viewModel.total && viewModel.loadMore.value == false)
