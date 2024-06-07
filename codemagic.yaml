@@ -7,7 +7,6 @@ workflows:
     debug-workflow: # workflow ID
       name: Native Android # workflow name
       max_build_duration: 120 # max build duration in minutes
-      instant_type: mac_mini
       scripts:
         - |
           # launching android emulator
