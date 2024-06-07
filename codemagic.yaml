@@ -8,9 +8,9 @@ workflows:
       name: Native Android # workflow name
       max_build_duration: 120 # max build duration in minutes
       scripts:
-        - |
-          # launching android emulator
-          emulator -avd emulator > /dev/null 2>&1 & sleep 30
+#        - |
+#          # launching android emulator
+#          emulator -avd emulator > /dev/null 2>&1 & sleep 30
         - |
           # set up debug keystore
           rm -f ~/.android/debug.keystore
