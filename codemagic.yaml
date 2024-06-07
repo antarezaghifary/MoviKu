@@ -1,0 +1,76 @@
+# You can get more information regarding the YAML file here:
+# https://docs.codemagic.io/getting-started/yaml/
+
+# Workflow setup for building Native Android project
+workflows:
+    # The following workflow is for generating a debug build
+    debug-workflow: # workflow ID
+      name: Native Android # workflow name
+      max_build_duration: 120 # max build duration in minutes
+      instant_type: mac_mini
+      scripts:
+        - |
+          # launching android emulator
+          emulator -avd emulator > /dev/null 2>&1 &
+        - |
+          # set up debug keystore
+          rm -f ~/.android/debug.keystore
+          keytool -genkeypair \
+            -alias androiddebugkey \
+            -keypass android \
+            -keystore ~/.android/debug.keystore \
+            -storepass android \
+            -dname 'CN=Android Debug,O=Android,C=US' \
+            -keyalg 'RSA' \
+            -keysize 2048 \
+            -validity 10000
+        - |
+          # run tests
+          ./gradlew test
+          ./gradlew connectedAndroidTest
+        - |  
+          # build debug apk
+          ./gradlew assembleDebug
+      artifacts:
+        - app/build/**/outputs/**/*.apk
+      publishing:
+        email:
+          recipients:
+            - xsamrez08@gmail.com # enter your email id here
+            
+    # # The following workflow is for generating a release build
+    # release-workflow: # workflow ID
+    #   name: Native Android # workflow name
+    #   max_build_duration: 60 # max build duration in minutes
+    #   environment:
+    #     vars:
+    #       CM_KEYSTORE: Encrypted(...) # enter the encrypted version of your keystore file
+    #       CM_KEYSTORE_PASSWORD: Encrypted(...) # enter the encrypted version of your keystore password
+    #       CM_KEY_ALIAS_PASSWORD: Encrypted(...) # enter the encrypted version of your key alias password
+    #       CM_KEY_ALIAS_USERNAME: app # enter your alias name
+    #   scripts:
+    #     - |
+    #       # launching android emulator
+    #       emulator -avd emulator > /dev/null 2>&1 &
+    #     - |
+    #       # set up release keystore
+    #       echo $CM_KEYSTORE | base64 --decode > /tmp/keystore.keystore
+    #       cat >> "$CM_BUILD_DIR/key.properties" <<EOF
+    #       storePassword=$CM_KEYSTORE_PASSWORD
+    #       keyPassword=$CM_KEY_ALIAS_PASSWORD
+    #       keyAlias=$CM_KEY_ALIAS_USERNAME
+    #       storeFile=/tmp/keystore.keystore
+    #       EOF
+    #     - |
+    #       # run tests
+    #       ./gradlew test
+    #       ./gradlew connectedAndroidTest
+    #     - |  
+    #       # build release apk
+    #       ./gradlew assembleRelease
+    #   artifacts:
+    #     - app/build/**/outputs/**/*.apk
+    #   publishing:
+    #     email:
+    #       recipients:
+    #         - name@example.com # enter your email id here
